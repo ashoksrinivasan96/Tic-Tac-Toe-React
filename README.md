@@ -1,6 +1,6 @@
 # Tic-Tac-Toe-React
 
-One of the first few React website projects I will be taking on.
+One of the first few React projects I will be taking on.
 This project is a take on restaurant websites and my version of a perfect portfolio for them.
 
 ## Motivation
@@ -9,15 +9,7 @@ It taught me several concepts as well as perseverance to actually close a projec
 
 ## Screenshots
 
-### Mobile screen
-<img src="assets/mobile.png" width="170px" height="300px">
-
-### Tab screen
-<img src="assets/tab.png" width="240px" height="300px">
-
-### Web screen
-<img src="assets/web.png" width="300px" height="300px">
-
+<img src="image.png" width="500px" height="300px">
 
 ## Tech/Frameworks Used
 React, Redux, JSX, HTML, CSS, Javascript, JSON
