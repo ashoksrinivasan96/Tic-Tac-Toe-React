@@ -1,85 +1,45 @@
 # Tic-Tac-Toe-React
 
 One of the first few React projects I will be taking on.
-This project is a take on restaurant websites and my version of a perfect portfolio for them.
+This project is a a simple start on my world of React using a game from our childhood - The classic Tic-Tac-Toe
 
 ## Motivation
-I started out with a very basic idea of making a website for a restaurant owner. The progress was spread through weeks and turned out to be pretty challenging.
-It taught me several concepts as well as perseverance to actually close a project properly 😀
+
+Beginning is the hardest part they say, and so with this project I have begun my very first Recat application. Initially I felt this is a small accomplishment but after the project was complete, I had confidence that I would be able to take on upcoming projects that include React without feeling intimidated.
 
 ## Screenshots
 
 <img src="image.png" width="500px" height="300px">
 
 ## Tech/Frameworks Used
-React, Redux, JSX, HTML, CSS, Javascript, JSON
+React, HTML, CSS, Javascript
 
 ## Features
-* Fully responsive website (web, tablet and mobile)
-* Clean minimal design
-* Dark Theme
-* Customisable template for any needs
-* Executes the requirements of a restaurant
+* Storing past moves and ability to go back to any of them
+* Determining who wins
 
 ## Code Example
-Function to Render dish and comments on the Menu page
+Function to calculate the history of moves
 
-    function RenderDishAndComments({dish, comments,dishId, postComment}) {
-       //Checking if the value of the parameter passed is null or not. If null, return empty view
-        if (dish != null && comments != null) {
-            const displayComments =comments.map((cmt) => {
-                return (
-                    <ListGroup key={cmt.id}>
-                        {/* Converting date to the required format using toDateString()*/}
-                        <ListGroupItem>{cmt.comment}<br></br> --{cmt.author}, {new Intl.DateTimeFormat('en-US', {year:'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(cmt.date)))}</ListGroupItem>
-
-                    </ListGroup>
-                );
-            });
-            return (
-               
-                <div className="row">
-                     {/*returning view with the selected image and the corresponding comments*/}
-                    <div className="col-12 col-md-5 col-xl-5 col-lg-5 m-1">
-                       <FadeTransform
-                in
-                transformProps={{
-                    exitTransform: 'scale(0.5) translateY(-50%)'
-                }}>
-            <Card>
-                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                <CardBody>
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
-            </FadeTransform>
-                    </div>
-                    <div className="col-12 col-md-5 col-xl-5 col-lg-5 m-1">
-                        <h4>Comments</h4>
-                       <Stagger in>
-                           <Fade>
-                              {displayComments}
-                           </Fade>
-                       </Stagger>
-                      
-                       
-                        <CommentForm dishId={dishId} postComment={postComment} />
-                    </div>
-                </div>
-
-            );
-
-        }
-        else {
-            return (
-                <div></div>
-            );
-        }
+``` handleClick(i) {
+      const history = this.state.history.slice(0, this.state.stepNumber + 1);
+      const current = history[history.length - 1];
+      const squares = current.squares.slice();
+      if (calculateWinner(squares) || squares[i]) {
+        return;
+      }
+      squares[i] = this.state.xIsNext ? "X" : "O";
+      this.setState({
+        history: history.concat([
+          {
+            squares: squares
+          }
+        ]),
+        stepNumber: history.length,
+        xIsNext: !this.state.xIsNext
+      });
     }
-
-## Link to the website
-Find the website [here](https://exoticdelikabi.herokuapp.com/home)
+```
 
 ## Credits
 **©Ashok Srinivasan| 2020**
