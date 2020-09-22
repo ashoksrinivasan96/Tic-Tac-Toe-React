@@ -39,6 +39,7 @@ Function to calculate the history of moves
         xIsNext: !this.state.xIsNext
       });
     }
+    
 ```
 
 ## Credits
